@@ -4,184 +4,249 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= esc($title) ?></title>
-    <link href="<?= base_url('css/styles.css') ?>" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
 </head>
 <body class="font-sans">
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100">
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-card">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
-                <a href="#" class="flex items-center space-x-2">
-                    <span class="text-2xl font-bold text-gray-900">Tani</span>
-                    <span class="text-2xl text-primary">Maju</span>
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+                        <i class="ph ph-plant text-2xl text-green-600"></i>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-gray-900">Tani</span>
+                        <span class="text-2xl font-bold text-green-600">Maju</span>
+                    </div>
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="#profile" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Profil</a>
-                    <a href="#visi-misi" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Visi & Misi</a>
-                    <a href="#calendar" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Kalendar</a>
-                    <a href="#gallery" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Galeri</a>
-                    <a href="#contact" class="ml-2 px-4 py-2 text-sm text-gray-700 hover:text-gray-900 transition-colors">Hubungi Kami</a>
-                    <a href="/auth/login" class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">Log in</a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="#profile" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">Profil</a>
+                    <a href="#visi-misi" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">Visi & Misi</a>
+                    <a href="#calendar" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">Kalendar</a>
+                    <a href="#gallery" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">Galeri</a>
+                    <a href="#contact" class="px-4 py-2 text-sm font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">Hubungi Kami</a>
+                    <div class="w-px h-6 bg-gray-200 mx-2"></div>
+                    <a href="/auth/login" class="px-4 py-2 text-sm font-semibold text-white bg-green-600 rounded-xl hover:bg-green-500 shadow-sm hover:shadow transition-all duration-200 flex items-center gap-2">
+                        <i class="ph ph-sign-in text-lg"></i>
+                        Masuk
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button type="button" class="md:hidden text-gray-600" onclick="toggleMobileMenu()">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
+                <button type="button" class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-xl transition-colors" onclick="toggleMobileMenu()">
+                    <i class="ph ph-list text-2xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="container mx-auto px-4 py-4 space-y-4">
-                <a href="#profile" class="block text-gray-600 hover:text-primary transition-colors">Profil</a>
-                <a href="#visi-misi" class="block text-gray-600 hover:text-primary transition-colors">Visi & Misi</a>
-                <a href="#calendar" class="block text-gray-600 hover:text-primary transition-colors">Kalendar</a>
-                <a href="#gallery" class="block text-gray-600 hover:text-primary transition-colors">Galeri</a>
-                <a href="#contact" class="block text-gray-600 hover:text-primary transition-colors">Hubungi Kami</a>
-                <a href="/auth/login" class="block text-gray-600 hover:text-primary transition-colors">Log in</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white/80 backdrop-blur-lg border-t border-gray-100">
+            <div class="container mx-auto px-4 py-4 space-y-2">
+                <a href="#profile" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">
+                    <i class="ph ph-user text-lg"></i>
+                    <span class="font-medium">Profil</span>
+                </a>
+                <a href="#visi-misi" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">
+                    <i class="ph ph-target text-lg"></i>
+                    <span class="font-medium">Visi & Misi</span>
+                </a>
+                <a href="#calendar" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">
+                    <i class="ph ph-calendar text-lg"></i>
+                    <span class="font-medium">Kalendar</span>
+                </a>
+                <a href="#gallery" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">
+                    <i class="ph ph-image text-lg"></i>
+                    <span class="font-medium">Galeri</span>
+                </a>
+                <a href="#contact" class="flex items-center gap-3 px-4 py-2.5 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">
+                    <i class="ph ph-phone text-lg"></i>
+                    <span class="font-medium">Hubungi Kami</span>
+                </a>
+                <div class="pt-2 mt-2 border-t border-gray-100">
+                    <a href="/auth/login" class="flex items-center gap-3 px-4 py-2.5 text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200">
+                        <i class="ph ph-sign-in text-lg"></i>
+                        <span class="font-semibold">Masuk</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center bg-gradient-to-b from-green-50 to-white pt-20">
-        <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-10"></div>
+    <header class="relative min-h-screen flex items-center bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 pt-20 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 -z-10 opacity-20">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23059669" fill-opacity="0.1" fill-rule="evenodd"%3E%3Ccircle cx="20" cy="20" r="3"/%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 -left-20 w-80 h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+        <div class="absolute bottom-20 -right-20 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-20 left-40 w-80 h-80 bg-teal-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex flex-col items-center justify-center text-center max-w-4xl mx-auto" data-aos="fade-up">
-                <div class="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 mb-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/50 backdrop-blur-sm rounded-2xl text-sm font-medium text-green-800 mb-8 shadow-sm hover:shadow transition-all duration-300">
+                    <i class="ph ph-plant text-lg"></i>
                     <span>Kelompok Tani Maju Bersama</span>
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
                 </div>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                    Membangun <span class="text-primary">pertanian</span><br>
-                    <span class="text-gray-900">berkelanjutan</span>
+
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
+                    Membangun <span class="text-green-600">pertanian</span><br>
+                    <span class="relative inline-block">
+                        <span class="relative z-10">berkelanjutan</span>
+                        <div class="absolute bottom-2 -z-10 left-0 right-0 h-3 bg-green-200/50 transform -skew-x-12"></div>
+                    </span>
                 </h1>
-                <p class="text-xl text-gray-600 mb-12 max-w-2xl">
-                    Bersama menciptakan masa depan pertanian yang lebih baik<br>
+
+                <p class="text-xl text-gray-600 mb-12 max-w-2xl leading-relaxed">
+                    Bersama menciptakan masa depan pertanian yang lebih baik
                     untuk kesejahteraan petani Indonesia.
                 </p>
+
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#contact" class="px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-center">
-                        Hubungi Kami
+                    <a href="#contact" class="group px-8 py-4 bg-green-600 text-white rounded-xl hover:bg-green-500 shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center gap-3 text-lg font-semibold">
+                        <span>Hubungi Kami</span>
+                        <i class="ph ph-arrow-right text-xl transition-transform duration-200 group-hover:translate-x-1"></i>
                     </a>
                 </div>
             </div>
         </div>
+
         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
+            <i class="ph ph-arrow-down text-2xl text-green-600"></i>
         </div>
+
+        <style>
+            @keyframes blob {
+                0% { transform: translate(0px, 0px) scale(1); }
+                33% { transform: translate(30px, -50px) scale(1.1); }
+                66% { transform: translate(-20px, 20px) scale(0.9); }
+                100% { transform: translate(0px, 0px) scale(1); }
+            }
+            .animate-blob {
+                animation: blob 7s infinite;
+            }
+            .animation-delay-2000 {
+                animation-delay: 2s;
+            }
+            .animation-delay-4000 {
+                animation-delay: 4s;
+            }
+        </style>
     </header>
 
     <!-- Profile Section -->
-    <section id="profile" class="py-24 bg-gradient-to-b from-white to-green-50 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-5"></div>
+    <section id="profile" class="py-24 bg-gradient-to-br from-white to-green-50/30 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 -z-10 opacity-[0.15]">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23059669" fill-opacity="0.1" fill-rule="evenodd"%3E%3Ccircle cx="20" cy="20" r="3"/%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <div class="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full text-sm text-blue-600 mb-4 font-medium">
-                    <span>WHAT WE DO</span>
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-2xl text-sm font-medium text-green-800 mb-4 shadow-sm hover:shadow transition-all duration-300">
+                    <i class="ph ph-leaf text-lg"></i>
+                    <span>TENTANG KAMI</span>
                 </div>
-                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Membangun Masa Depan<br>Pertanian Indonesia</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Kami berkomitmen untuk mengembangkan pertanian berkelanjutan dengan menerapkan teknologi modern dan praktik ramah lingkungan.</p>
+                <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+                    <span class="relative inline-block">
+                        <span class="relative z-10">Membangun Masa Depan</span>
+                        <div class="absolute bottom-2 -z-10 left-0 right-0 h-3 bg-green-200/50 transform -skew-x-12"></div>
+                    </span>
+                    <br>Pertanian Indonesia
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    Kami berkomitmen untuk mengembangkan pertanian berkelanjutan dengan menerapkan teknologi modern dan praktik ramah lingkungan.
+                </p>
             </div>
 
             <!-- Profile Content -->
             <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Text Content -->
-                <div class="space-y-8 order-1 md:order-1" data-aos="fade-right" data-aos-delay="100">
-                <!-- Stats and Features Section -->
-                <div class="space-y-8">
-                    <!-- Image Section -->
-                    <div class="relative order-2 md:order-2" data-aos="fade-left" data-aos-delay="100">
-                        <div class="relative">
-                            <!-- Background Decorative Elements -->
-                            <div class="absolute -top-6 -right-6 w-24 h-24 bg-green-50 rounded-full z-0 animate-pulse"></div>
-                            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-50 rounded-full z-0 animate-pulse delay-150"></div>
-                            
-                            <!-- Main Image -->
-                            <div class="relative z-10 rounded-2xl overflow-hidden shadow-xl">
-                                <div class="aspect-w-16 aspect-h-9">
-                                    <img src="<?= base_url('img/profile.jpg') ?>" alt="Profil Kelompok Tani" 
-                                        class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
-                                </div>
+                <!-- Image Section -->
+                <div class="relative order-2 md:order-1" data-aos="fade-right">
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-green-100 rounded-full mix-blend-multiply filter blur-lg opacity-70 animate-blob"></div>
+                    <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-emerald-100 rounded-full mix-blend-multiply filter blur-lg opacity-70 animate-blob animation-delay-2000"></div>
+                    
+                    <!-- Main Image -->
+                    <div class="relative">
+                        <div class="relative z-10 rounded-2xl overflow-hidden shadow-xl bg-white p-2">
+                            <div class="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden">
+                                <img src="<?= base_url('img/profile.jpg') ?>" alt="Profil Kelompok Tani" 
+                                    class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                            </div>
+                        </div>
+                        <!-- Pattern Overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-green-600/20 to-transparent mix-blend-overlay rounded-2xl"></div>
+                    </div>
+                </div>
+
+                <!-- Features -->
+                <div class="space-y-6 order-1 md:order-2" data-aos="fade-left">
+                    <!-- Feature 1 -->
+                    <div class="group glass-card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 border border-white/20">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-50 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                                <i class="ph ph-leaf text-2xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Pertanian Modern</h3>
+                                <p class="text-gray-600 leading-relaxed">Mengembangkan pertanian dengan teknologi modern dan praktik ramah lingkungan untuk hasil yang optimal dan berkelanjutan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="group glass-card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 border border-white/20">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-50 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                                <i class="ph ph-users-three text-2xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Pemberdayaan Komunitas</h3>
+                                <p class="text-gray-600 leading-relaxed">Aktif dalam berbagai kegiatan pemberdayaan masyarakat dan edukasi pertanian untuk kesejahteraan bersama.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="group glass-card p-6 rounded-2xl hover:shadow-lg transition-all duration-300 border border-white/20">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-50 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                                <i class="ph ph-tree text-2xl text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Pertanian Berkelanjutan</h3>
+                                <p class="text-gray-600 leading-relaxed">Menerapkan praktik pertanian yang ramah lingkungan dan berkelanjutan untuk masa depan yang lebih baik.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-             <!-- Features -->
-            <div class="space-y-6">
-                <div class="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-blue-50 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Pertanian Modern</h3>
-                            <p class="text-gray-600 leading-relaxed">Mengembangkan pertanian dengan teknologi modern dan praktik ramah lingkungan untuk hasil yang optimal dan berkelanjutan.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="group bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-green-50 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Pemberdayaan Komunitas</h3>
-                            <p class="text-gray-600 leading-relaxed">Aktif dalam berbagai kegiatan pemberdayaan masyarakat dan edukasi pertanian untuk kesejahteraan bersama.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Stats Row -->
-                <div class="flex gap-6">
-                    <div class="w-1/2 bg-white px-6 py-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-center gap-4">
-                        <div class="bg-blue-50 p-3 rounded-xl">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold text-gray-900">500+</div>
-                            <div class="text-sm text-gray-600">Anggota Aktif</div>
-                        </div>
-                    </div>
-
-                    <div class="w-1/2 bg-white px-6 py-4 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex items-center gap-4">
-                        <div class="bg-green-50 p-3 rounded-xl">
-                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="text-2xl font-bold text-gray-900">13+</div>
-                            <div class="text-sm text-gray-600">Tahun Pengalaman</div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
         </div>
-    </section>
+    </section>      
 
     <!-- Visi & Misi Section -->
     <section class="bg-gradient-to-b from-green-50 to-white py-24">
@@ -359,7 +424,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-24 bg-gradient-to-b from-white to-green-50 overflow-hidden" data-aos="fade-up">
+    <section id="gallery" class="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -399,7 +464,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-gradient-to-b from-green-50 to-white" data-aos="fade-up">
+    <section id="contact" class="py-24 bg-gradient-to-b from-gray-50 to-white" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
