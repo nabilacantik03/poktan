@@ -28,7 +28,7 @@
                     <a href="#calendar" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Kalendar</a>
                     <a href="#gallery" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Galeri</a>
                     <a href="#contact" class="ml-2 px-4 py-2 text-sm text-gray-700 hover:text-gray-900 transition-colors">Hubungi Kami</a>
-                    <a href="/login" class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">Log in</a>
+                    <a href="/auth/login" class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">Log in</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -48,12 +48,13 @@
                 <a href="#calendar" class="block text-gray-600 hover:text-primary transition-colors">Kalendar</a>
                 <a href="#gallery" class="block text-gray-600 hover:text-primary transition-colors">Galeri</a>
                 <a href="#contact" class="block text-gray-600 hover:text-primary transition-colors">Hubungi Kami</a>
+                <a href="/auth/login" class="block text-gray-600 hover:text-primary transition-colors">Log in</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center bg-gray-50 pt-20">
+    <header class="relative min-h-screen flex items-center bg-gradient-to-b from-green-50 to-white pt-20">
         <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-10"></div>
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex flex-col items-center justify-center text-center max-w-4xl mx-auto" data-aos="fade-up">
@@ -86,7 +87,7 @@
     </header>
 
     <!-- Profile Section -->
-    <section id="profile" class="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section id="profile" class="py-24 bg-gradient-to-b from-white to-green-50 relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('/img/grid-pattern.svg')] opacity-5"></div>
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative">
             <!-- Section Header -->
@@ -358,7 +359,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden" data-aos="fade-up">
+    <section id="gallery" class="py-24 bg-gradient-to-b from-white to-green-50 overflow-hidden" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -398,7 +399,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-gradient-to-b from-gray-50 to-white" data-aos="fade-up">
+    <section id="contact" class="py-24 bg-gradient-to-b from-green-50 to-white" data-aos="fade-up">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
