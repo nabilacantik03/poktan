@@ -8,41 +8,31 @@ class GallerySeeder extends Seeder
 {
     public function run()
     {
-        // Get admin user id
-        $adminId = $this->db->table('users')
-            ->where('username', 'admin')
-            ->get()->getRow()->id;
-
-        // Get first activity id
-        $activityId = $this->db->table('activities')
-            ->limit(1)
-            ->get()->getRow()->id;
-
         $data = [
             [
-                'title' => 'Persiapan Lahan',
-                'description' => 'Dokumentasi kegiatan persiapan lahan untuk musim tanam baru.',
-                'image_path' => 'gallery/preparation.jpg',
-                'activity_id' => $activityId,
-                'uploaded_by' => $adminId,
+                'title' => 'Pelatihan Budidaya',
+                'description' => 'Dokumentasi pelatihan budidaya padi modern',
+                'image_path' => 'gallery/gallery-1.jpg',
+                'activity_id' => 1,
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'title' => 'Pembibitan',
-                'description' => 'Proses pembibitan tanaman padi menggunakan metode organik.',
-                'image_path' => 'gallery/seeding.jpg',
-                'activity_id' => $activityId,
-                'uploaded_by' => $adminId,
+                'title' => 'Persiapan Panen',
+                'description' => 'Persiapan panen raya jagung',
+                'image_path' => 'gallery/gallery-2.jpg',
+                'activity_id' => 2,
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'title' => 'Pelatihan Anggota',
-                'description' => 'Dokumentasi pelatihan anggota kelompok tani.',
-                'image_path' => 'gallery/training.jpg',
-                'activity_id' => $activityId,
-                'uploaded_by' => $adminId,
+                'title' => 'Workshop Pengolahan',
+                'description' => 'Workshop pengolahan hasil tani',
+                'image_path' => 'gallery/gallery-3.jpg',
+                'activity_id' => 3,
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]

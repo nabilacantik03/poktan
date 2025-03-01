@@ -3,9 +3,17 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use App\Models\UserModel;
 
 class Auth extends BaseController
 {
+    protected $userModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+    }
+
     public function index()
     {
         return redirect()->to('/auth/login');
@@ -13,16 +21,27 @@ class Auth extends BaseController
 
     public function login()
     {
+        // Jika sudah login, redirect ke dashboard
+        if (session()->get('isLoggedIn')) {
+            return redirect()->to('/dashboard');
+        }
+
         $data = [
-            'title' => 'Login | Kelompok Tani Maju Bersama'
+            'title' => 'Login | Kelompok Tani Maju'
         ];
         return view('auth/login', $data);
     }
 
     public function register()
     {
+        // Jika sudah login, redirect ke dashboard
+        if (session()->get('isLoggedIn')) {
+            return redirect()->to('/dashboard');
+        }
+
         $data = [
-            'title' => 'Register | Kelompok Tani Maju Bersama'
+            'title' => 'Register | Kelompok Tani Maju Bersama',
+            'validation' => \Config\Services::validation()
         ];
         return view('auth/register', $data);
     }
@@ -36,17 +55,38 @@ class Auth extends BaseController
         ];
 
         if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            return redirect()->back()
+                ->withInput()
+                ->with('errors', $this->validator->getErrors());
         }
 
-        // For now, we'll just set a simple session (you should implement proper authentication later)
-        $session = session();
-        $session->set([
-            'isLoggedIn' => true,
-            'username' => $this->request->getPost('username')
-        ]);
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
 
-        return redirect()->to('/dashboard')->with('success', 'Login berhasil!');
+        // Cari user berdasarkan username
+        $user = $this->userModel->where('username', $username)->first();
+
+        // Verifikasi user dan password
+        if ($user && password_verify($password, $user['password'])) {
+            // Set session
+            $sessionData = [
+                'user_id' => $user['id'],
+                'username' => $user['username'],
+                'name' => $user['name'],
+                'role' => $user['role'],
+                'isLoggedIn' => true
+            ];
+            session()->set($sessionData);
+
+            // Redirect ke dashboard dengan pesan sukses
+            return redirect()->to('/dashboard')
+                ->with('success', 'Selamat datang kembali, ' . $user['name'] . '!');
+        }
+
+        // Jika login gagal
+        return redirect()->back()
+            ->withInput()
+            ->with('error', 'Username atau password salah');
     }
 
     public function processRegister()
@@ -54,24 +94,41 @@ class Auth extends BaseController
         // Validasi input
         $rules = [
             'username' => 'required|min_length[3]|is_unique[users.username]',
-            'phone' => 'required|min_length[10]|max_length[15]|numeric|is_unique[users.phone]',
             'password' => 'required|min_length[6]',
-            'confirm_password' => 'required|matches[password]'
+            'confirm_password' => 'required|matches[password]',
+            'name' => 'required',
+            'phone' => 'required|min_length[10]|max_length[15]|numeric|is_unique[users.phone]',
+            'address' => 'required'
         ];
 
         if (!$this->validate($rules)) {
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            return redirect()->back()
+                ->withInput()
+                ->with('errors', $this->validator->getErrors());
         }
 
-        // Proses registrasi akan diimplementasikan nanti
-        return redirect()->to('/auth/login')->with('success', 'Registrasi berhasil! Silakan login.');
+        // Simpan data user baru
+        $this->userModel->save([
+            'username' => $this->request->getPost('username'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'name' => $this->request->getPost('name'),
+            'phone' => $this->request->getPost('phone'),
+            'address' => $this->request->getPost('address'),
+            'role' => 'member'
+        ]);
+
+        // Redirect ke login dengan pesan sukses
+        return redirect()->to('/auth/login')
+            ->with('success', 'Registrasi berhasil! Silakan login.');
     }
 
     public function logout()
     {
-        $session = session();
-        $session->destroy();
-        
-        return redirect()->to('/auth/login')->with('success', 'Anda telah berhasil logout.');
+        // Hapus semua data session
+        session()->destroy();
+
+        // Redirect ke halaman login dengan pesan
+        return redirect()->to('/auth/login')
+            ->with('success', 'Anda telah berhasil keluar dari sistem.');
     }
 }

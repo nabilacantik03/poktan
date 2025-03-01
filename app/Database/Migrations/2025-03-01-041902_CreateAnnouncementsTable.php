@@ -22,17 +22,17 @@ class CreateAnnouncementsTable extends Migration
             'content' => [
                 'type' => 'TEXT',
             ],
-            'priority' => [
+            'type' => [
                 'type'       => 'ENUM',
-                'constraint' => ['low', 'medium', 'high'],
-                'default'    => 'medium',
+                'constraint' => ['info', 'warning', 'important'],
+                'default'    => 'info',
             ],
             'status' => [
                 'type'       => 'ENUM',
-                'constraint' => ['draft', 'published', 'archived'],
-                'default'    => 'draft',
+                'constraint' => ['active', 'inactive'],
+                'default'    => 'active',
             ],
-            'created_by' => [
+            'user_id' => [
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -50,9 +50,9 @@ class CreateAnnouncementsTable extends Migration
                 'null'    => true,
             ],
         ]);
-        
+
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('created_by', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('announcements');
     }
 

@@ -8,42 +8,34 @@ class ActivitySeeder extends Seeder
 {
     public function run()
     {
-        // Get admin user id
-        $adminId = $this->db->table('users')
-            ->where('username', 'admin')
-            ->get()->getRow()->id;
-
         $data = [
             [
-                'title' => 'Pelatihan Pertanian Organik',
-                'description' => 'Pelatihan tentang teknik pertanian organik dan pembuatan pupuk kompos.',
+                'title' => 'Pelatihan Budidaya Padi Modern',
+                'description' => 'Pelatihan teknik budidaya padi modern dengan teknologi terbaru',
                 'date' => '2025-03-15',
-                'time' => '09:00:00',
                 'location' => 'Balai Desa Sukamaju',
                 'status' => 'upcoming',
-                'created_by' => $adminId,
+                'user_id' => 2, // ID ketua
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'title' => 'Rapat Anggota Bulanan',
-                'description' => 'Rapat rutin bulanan untuk membahas perkembangan dan rencana kegiatan.',
-                'date' => '2025-03-23',
-                'time' => '10:00:00',
-                'location' => 'Sekretariat Kelompok Tani',
+                'title' => 'Panen Raya Jagung',
+                'description' => 'Panen raya jagung bersama seluruh anggota kelompok tani',
+                'date' => '2025-04-01',
+                'location' => 'Lahan Pertanian Blok A',
                 'status' => 'upcoming',
-                'created_by' => $adminId,
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'title' => 'Panen Raya Padi',
-                'description' => 'Panen raya padi bersama seluruh anggota kelompok tani.',
-                'date' => '2025-04-05',
-                'time' => '07:00:00',
-                'location' => 'Sawah Bersama',
+                'title' => 'Workshop Pengolahan Hasil Tani',
+                'description' => 'Workshop cara mengolah hasil tani menjadi produk bernilai tinggi',
+                'date' => '2025-03-10',
+                'location' => 'Aula Kecamatan',
                 'status' => 'upcoming',
-                'created_by' => $adminId,
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]

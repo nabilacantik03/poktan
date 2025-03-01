@@ -8,36 +8,31 @@ class AnnouncementSeeder extends Seeder
 {
     public function run()
     {
-        // Get admin user id
-        $adminId = $this->db->table('users')
-            ->where('username', 'admin')
-            ->get()->getRow()->id;
-
         $data = [
             [
                 'title' => 'Jadwal Pelatihan Bulan Maret',
-                'content' => 'Diberitahukan kepada seluruh anggota bahwa akan diadakan pelatihan pertanian organik pada tanggal 15 Maret 2025. Mohon kehadiran seluruh anggota.',
-                'priority' => 'high',
-                'status' => 'published',
-                'created_by' => $adminId,
+                'content' => 'Diumumkan kepada seluruh anggota kelompok tani bahwa akan diadakan pelatihan budidaya padi modern pada tanggal 15 Maret 2025.',
+                'type' => 'info',
+                'status' => 'active',
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'title' => 'Pengadaan Bibit Unggul',
-                'content' => 'Kelompok tani akan mengadakan pembelian bibit unggul secara kolektif. Bagi yang berminat dapat mendaftar di sekretariat.',
-                'priority' => 'medium',
-                'status' => 'published',
-                'created_by' => $adminId,
+                'title' => 'Bantuan Bibit Gratis',
+                'content' => 'Pemerintah daerah memberikan bantuan bibit gratis untuk anggota kelompok tani. Pendaftaran dibuka sampai 10 Maret 2025.',
+                'type' => 'important',
+                'status' => 'active',
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ],
             [
-                'title' => 'Rapat Rutin Bulanan',
-                'content' => 'Mengingatkan kepada seluruh anggota untuk rapat rutin bulanan yang akan diadakan pada tanggal 23 Maret 2025.',
-                'priority' => 'medium',
-                'status' => 'published',
-                'created_by' => $adminId,
+                'title' => 'Rapat Anggota Bulanan',
+                'content' => 'Rapat anggota bulanan akan diadakan pada hari Minggu, 5 Maret 2025 pukul 09.00 WIB di Balai Desa.',
+                'type' => 'info',
+                'status' => 'active',
+                'user_id' => 2,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]

@@ -40,7 +40,7 @@ class CreateActivitiesTable extends Migration
                 'constraint' => ['upcoming', 'ongoing', 'completed', 'cancelled'],
                 'default'    => 'upcoming',
             ],
-            'created_by' => [
+            'user_id' => [
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -58,9 +58,9 @@ class CreateActivitiesTable extends Migration
                 'null'    => true,
             ],
         ]);
-        
+
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('created_by', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('activities');
     }
 

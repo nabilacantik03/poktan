@@ -31,9 +31,9 @@ class CreateGalleriesTable extends Migration
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null'       => true,
+                'null'      => true,
             ],
-            'uploaded_by' => [
+            'user_id' => [
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,
@@ -51,10 +51,10 @@ class CreateGalleriesTable extends Migration
                 'null'    => true,
             ],
         ]);
-        
+
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('activity_id', 'activities', 'id', 'SET NULL', 'CASCADE');
-        $this->forge->addForeignKey('uploaded_by', 'users', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('galleries');
     }
 
