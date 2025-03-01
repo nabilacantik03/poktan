@@ -22,4 +22,8 @@ $routes->group('auth', function($routes) {
 // Dashboard routes (akan ditambahkan nanti)
 $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'Dashboard::index');
+    $routes->get('profile', 'Dashboard::profile');
+    $routes->get('activities', 'Dashboard::activities');
+    $routes->get('gallery', 'Dashboard::gallery');
+    $routes->get('members', 'Dashboard::members');
 });

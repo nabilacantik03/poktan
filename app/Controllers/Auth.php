@@ -39,8 +39,14 @@ class Auth extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Proses login akan diimplementasikan nanti
-        return redirect()->to('/dashboard');
+        // For now, we'll just set a simple session (you should implement proper authentication later)
+        $session = session();
+        $session->set([
+            'isLoggedIn' => true,
+            'username' => $this->request->getPost('username')
+        ]);
+
+        return redirect()->to('/dashboard')->with('success', 'Login berhasil!');
     }
 
     public function processRegister()
@@ -63,7 +69,9 @@ class Auth extends BaseController
 
     public function logout()
     {
-        // Proses logout akan diimplementasikan nanti
-        return redirect()->to('/');
+        $session = session();
+        $session->destroy();
+        
+        return redirect()->to('/auth/login')->with('success', 'Anda telah berhasil logout.');
     }
 }
