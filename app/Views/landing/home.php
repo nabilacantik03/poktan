@@ -249,7 +249,7 @@
     </section>      
 
     <!-- Visi & Misi Section -->
-    <section class="bg-gradient-to-b from-green-50 to-white py-24">
+    <section class="bg-gradient-to-b from-green-50 to-white py-24" id="visi-misi">
         <div class="container mx-auto px-4">
             <!-- Section Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
