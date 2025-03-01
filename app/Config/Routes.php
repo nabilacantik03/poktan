@@ -22,4 +22,11 @@ $routes->group('auth', function($routes) {
 // Dashboard routes (akan ditambahkan nanti)
 $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'Dashboard::index');
+    $routes->get('profile', 'Dashboard::profile');
+    $routes->post('profile', 'Dashboard::updateProfile');
+    $routes->get('activities', 'Dashboard::activities');
+    $routes->get('gallery', 'Dashboard::gallery');
+    $routes->post('gallery', 'Dashboard::uploadMedia');
+    $routes->delete('gallery/(:num)', 'Dashboard::deleteMedia/$1');
+    $routes->get('members', 'Dashboard::members');
 });
