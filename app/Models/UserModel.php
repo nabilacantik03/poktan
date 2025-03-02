@@ -33,4 +33,9 @@ class UserModel extends Model
     protected $validationMessages = [];
     protected $skipValidation = false;
     protected $cleanValidationRules = true;
+
+    public function deleteUser($id)
+    {
+        return $this->delete($id);
+    }
 }

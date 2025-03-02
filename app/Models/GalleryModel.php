@@ -50,4 +50,16 @@ class GalleryModel extends Model
     ];
 
     protected $skipValidation = false;
+
+    public function getGalleryWithLimit($num) {
+        return $this->db->table($this->table)
+                        ->limit($num)
+                        ->orderBy('id', 'DESC')
+                        ->get()
+                        ->getResultArray();
+    }
+
+    public function deleteMedia($id) {
+        $this->db->table($this->table)->delete(['id' => $id]);
+    }
 }

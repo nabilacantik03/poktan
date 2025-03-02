@@ -2,8 +2,17 @@
 
 namespace App\Controllers;
 
+use App\Models\GalleryModel;
+
 class Home extends BaseController
 {
+    protected $galleryModel;
+
+    public function __construct()
+    {
+        $this->galleryModel = new GalleryModel();
+    }
+
     public function index(): string
     {
         $data = [
@@ -33,28 +42,8 @@ class Home extends BaseController
 
     private function getGallery()
     {
-        // TODO: Replace with actual database data
-        return [
-            [
-                'image' => 'img/gallery/farming1.jpg',
-                'title' => 'Kegiatan Tanam Padi',
-                'description' => 'Para petani sedang melakukan penanaman padi dengan teknik modern'
-            ],
-            [
-                'image' => 'img/gallery/farming2.jpg',
-                'title' => 'Hasil Panen',
-                'description' => 'Panen raya dengan hasil yang melimpah berkat penerapan teknologi pertanian'
-            ],
-            [
-                'image' => 'img/gallery/farming3.jpg',
-                'title' => 'Pelatihan Petani',
-                'description' => 'Sesi pelatihan untuk meningkatkan kemampuan dan pengetahuan petani'
-            ],
-            [
-                'image' => 'img/gallery/farming4.jpg',
-                'title' => 'Pemberdayaan Masyarakat',
-                'description' => 'Program pemberdayaan untuk kesejahteraan petani dan masyarakat sekitar'
-            ]
-        ];
+
+        $data = $this->galleryModel->getGalleryWithLimit(8);
+        return $data;
     }
 }

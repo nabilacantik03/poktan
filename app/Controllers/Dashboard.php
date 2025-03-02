@@ -6,6 +6,7 @@ use App\Models\UserModel;
 use App\Models\ActivityModel;
 use App\Models\GalleryModel;
 use App\Models\AnnouncementModel;
+use App\Models\AnggotaModel;
 
 class Dashboard extends BaseController
 {
@@ -197,7 +198,7 @@ class Dashboard extends BaseController
             }
 
             // Soft delete dari database
-            if (!$this->galleryModel->delete($id)) {
+            if (!$this->galleryModel->deleteMedia($id)) {
                 throw new \Exception('Gagal menghapus data dari database.');
             }
 
@@ -259,5 +260,61 @@ class Dashboard extends BaseController
         ];
         
         return view('dashboard/members', $data);
+    }
+
+    public function anggota()
+    {
+        $data = [
+            'title' => 'Anggota | Dashboard Poktan',
+            'anggota' => $this->userModel->findAll()
+        ];
+
+        return view('dashboard/anggota', $data);
+    }
+
+    public function createAnggota()
+    {
+        $rules = $this->userModel->getValidationRules();
+        $username = str_replace(' ', '', strtolower($this->request->getPost('name')));
+
+        $user = $this->userModel->where('username', $username)->first();
+        if ($user) {
+            return redirect()->back()
+                ->withInput()
+                ->with('error', 'Username sudah digunakan');
+        }
+
+        $data = [
+            'username' => $username,
+            'name' => $this->request->getPost('name'),
+            'role' => $this->request->getPost('role'),
+            'phone' => $this->request->getPost('phone'),
+            'address' => $this->request->getPost('address'),
+            'password' => password_hash('123456', PASSWORD_DEFAULT),
+        ];
+
+        if ($this->userModel->save($data)) {
+            return redirect()->to('dashboard/members')->with('success', 'Anggota berhasil ditambahkan');
+        }
+
+        return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+    }
+
+    public function deleteAnggota($id)
+    {
+        try {
+            $anggota = $this->userModel->find($id);
+            if (!$anggota) {
+                throw new \Exception('Anggota tidak ditemukan.');
+            }
+
+            if (!$this->userModel->deleteUser($id)) {
+                throw new \Exception('Gagal menghapus data dari database.');
+            }
+
+            return redirect()->to('dashboard/members')->with('success', 'Anggota berhasil dihapus');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }

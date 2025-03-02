@@ -26,13 +26,14 @@
         <div class="flex flex-col h-full">
             <!-- Logo -->
             <div class="p-4 border-b">
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-                        <i class="ph ph-plant text-2xl text-green-600"></i>
+                <a href="/" class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-xl flex items-center justify-center">
+                        <!-- <i class="ph ph-plant text-2xl text-green-600"></i> -->
+                        <img src="<?= base_url('img/logo.png') ?>" />
                     </div>
-                    <div class="flex items-center">
-                        <span class="text-2xl font-bold text-gray-900">Tani</span>
-                        <span class="text-2xl font-bold text-green-600">Maju</span>
+                    <div class="flex items-center gap-1">
+                        <span class="text-xl font-bold text-gray-900">Ngudi</span>
+                        <span class="text-xl font-bold text-green-600">Kamulyan</span>
                     </div>
                 </a>
             </div>

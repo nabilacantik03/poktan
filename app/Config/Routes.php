@@ -26,7 +26,13 @@ $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->post('profile', 'Dashboard::updateProfile');
     $routes->get('activities', 'Dashboard::activities');
     $routes->get('gallery', 'Dashboard::gallery');
-    $routes->post('gallery', 'Dashboard::uploadMedia');
-    $routes->delete('gallery/(:num)', 'Dashboard::deleteMedia/$1');
-    $routes->get('members', 'Dashboard::members');
+    $routes->post('gallery', 'Dashboard::createGallery');
+    $routes->delete('gallery/(:num)', 'Dashboard::deleteGallery/$1');
+    
+    // Anggota routes
+    $routes->get('members', 'Dashboard::anggota');
+    $routes->post('members', 'Dashboard::createAnggota');
+    $routes->delete('members/(:num)', 'Dashboard::deleteAnggota/$1');
+    
+    // $routes->get('members', 'Dashboard::members');
 });

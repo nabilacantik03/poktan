@@ -94,11 +94,11 @@
         <?php if (!empty($recentGalleries)): ?>
         <div class="grid grid-cols-2 gap-4">
             <?php foreach ($recentGalleries as $gallery): ?>
-            <div class="aspect-square rounded-xl overflow-hidden">
-                <img src="<?= base_url($gallery['image_path']) ?>" 
-                     alt="<?= esc($gallery['title']) ?>" 
-                     class="w-full h-full object-cover">
-            </div>
+                <div class="relative w-full aspect-[16/9]">
+                    <img src="<?= base_url('uploads/gallery/' . $gallery['file_name']) ?>" 
+                        alt="<?= esc($gallery['title']) ?>" 
+                        class="absolute top-0 left-0 w-full h-full object-cover rounded-xl">
+                </div>
             <?php endforeach; ?>
         </div>
         <?php else: ?>
