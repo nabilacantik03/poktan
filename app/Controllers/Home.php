@@ -18,9 +18,18 @@ class Home extends BaseController
         $data = [
             'title' => 'Kelompok Tani - Beranda',
             'events' => $this->getEvents(),
-            'gallery' => $this->getGallery()
+            'gallery' => $this->getGallery(),
         ];
+        
         return view('landing/home', $data);
+    }
+
+    public function contact()
+    {
+        $data = [
+            'title' => 'Kelompok Tani - Kirim Pesan'
+        ];
+        return view('contact', $data);
     }
 
     private function getEvents()
@@ -42,8 +51,6 @@ class Home extends BaseController
 
     private function getGallery()
     {
-
-        $data = $this->galleryModel->getGalleryWithLimit(8);
-        return $data;
+        return $this->galleryModel->getGalleryWithLimit(8);
     }
 }
