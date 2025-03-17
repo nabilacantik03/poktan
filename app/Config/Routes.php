@@ -12,10 +12,6 @@ use CodeIgniter\Router\RouteCollection;
 // Landing page route
 $routes->get('/', 'Home::index');
 
-// Contact form routes
-$routes->get('contact', 'Home::contact');
-$routes->post('messages/send', 'Messages::send');
-
 // Authentication routes
 $routes->group('auth', function($routes) {
     $routes->get('/', 'Auth::index');

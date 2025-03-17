@@ -146,13 +146,13 @@
             <div class="flex flex-col items-center justify-center text-center max-w-4xl mx-auto" data-aos="fade-up">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/50 backdrop-blur-sm rounded-2xl text-sm font-medium text-green-800 mb-8 shadow-sm hover:shadow transition-all duration-300">
                     <i class="ph ph-plant text-lg"></i>
-                    <span>Kelompok Tani Maju Bersama</span>
+                    <span>Kelompok Tani Ngudi Kamulyan</span>
                 </div>
 
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-8 tracking-tight">
-                    Membangun <span class="text-green-600">pertanian</span><br>
+                    Membangun <span class="text-green-600">Pertanian</span><br>
                     <span class="relative inline-block">
-                        <span class="relative z-10">berkelanjutan</span>
+                        <span class="relative z-10">Berkelanjutan</span>
                         <div class="absolute bottom-2 -z-10 left-0 right-0 h-3 bg-green-200/50 transform -skew-x-12"></div>
                     </span>
                 </h1>
@@ -161,13 +161,6 @@
                     Bersama menciptakan masa depan pertanian yang lebih baik
                     untuk kesejahteraan petani Indonesia.
                 </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="/contact" class="group px-4 py-1 bg-green-600 text-white rounded-xl hover:bg-green-500 shadow-sm hover:shadow transition-all duration-200 flex items-center justify-center gap-3 text-sm font-semibold">
-                        <span>Hubungi Kami</span>
-                        <i class="ph ph-arrow-right text-xl transition-transform duration-200 group-hover:translate-x-1"></i>
-                    </a>
-                </div>
             </div>
         </div>
 
@@ -436,7 +429,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                     </svg>
-                                    <span>Kabupaten Tetangga</span>
+                                    <span>Kabupaten Cilacap</span>
                                 </div>
                             </div>
                         </div>
@@ -514,7 +507,7 @@
                             </div>
                             <div>
                                 <h4 class="text-lg font-semibold text-gray-900 mb-1">Alamat</h4>
-                                <p class="text-gray-600">Jl. Pertanian No. 123<br>Desa Sukamaju, Kec. Sejahtera<br>Kab. Makmur, 12345</p>
+                                <p class="text-gray-600">Dk. Krenceng 2 Rt 07/02 <br>Desa Pandansari, Kec. Sruweng<br>Kab. Kebumen, 54362</p>
                             </div>
                         </div>
 
@@ -527,7 +520,7 @@
                             </div>
                             <div>
                                 <h4 class="text-lg font-semibold text-gray-900 mb-1">Telepon</h4>
-                                <p class="text-gray-600">+62 123 4567 8900<br>+62 098 7654 3210</p>
+                                <p class="text-gray-600">+62 81328439775<br>+62 87837766707</p>
                             </div>
                         </div>
 
@@ -540,7 +533,7 @@
                             </div>
                             <div>
                                 <h4 class="text-lg font-semibold text-gray-900 mb-1">Email</h4>
-                                <p class="text-gray-600">info@kelompoktani.com<br>admin@kelompoktani.com</p>
+                                <p class="text-gray-600">NgudiKamulyan@gmail.com<br>PoktanKamulyan@gmail.com</p>
                             </div>
                         </div>
 
@@ -623,7 +616,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8 md:mb-12">
                 <!-- About Section -->
                 <div class="space-y-4 mb-6 sm:mb-0">
-                    <h3 class="text-xl font-bold text-green-500 mb-4">Kelompok Tani Maju Bersama</h3>
+                    <h3 class="text-xl font-bold text-green-500 mb-4">Kelompok Tani Ngudi Kamulyan</h3>
                     <p class="text-gray-400 text-sm leading-relaxed">
                         Kami adalah komunitas petani yang berkomitmen untuk memajukan pertanian modern dan berkelanjutan melalui inovasi dan kolaborasi.
                     </p>
@@ -667,19 +660,19 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
-                            <span class="text-gray-400 text-sm sm:text-base">Jl. Pertanian No. 123, Desa Sukamaju</span>
+                            <span class="text-gray-400 text-sm sm:text-base">Ds. Pandansari rt 07/02, Kec. Sruweng, Kab. Kebumen, Prov. Jawa tengah</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
-                            <span class="text-gray-400 text-sm sm:text-base">info@kelompoktani.com</span>
+                            <span class="text-gray-400 text-sm sm:text-base">PoktanKamulyan@gmail.com</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                             </svg>
-                            <span class="text-gray-400 text-sm sm:text-base">+62 123 4567 8900</span>
+                            <span class="text-gray-400 text-sm sm:text-base">+62 81328439775</span>
                         </li>
                     </ul>
                 </div>
@@ -688,7 +681,7 @@
             <!-- Bottom Bar -->
             <div class="pt-6 md:pt-8 mt-6 md:mt-8 border-t border-gray-800">
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p class="text-gray-400 text-sm">&copy; 2024 Kelompok Tani Maju Bersama. All rights reserved.</p>
+                    <p class="text-gray-400 text-sm">&copy; 2024 Kelompok Tani Ngudi Kamulyan. All rights reserved.</p>
                     <div class="flex items-center gap-4 text-sm mt-4 sm:mt-0">
                         <a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
                         <span class="text-gray-600">|</span>
